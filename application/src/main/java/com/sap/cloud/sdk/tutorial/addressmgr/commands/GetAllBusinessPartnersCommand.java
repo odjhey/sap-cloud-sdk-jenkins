@@ -44,7 +44,7 @@ public class GetAllBusinessPartnersCommand {
                         .maxConcurrentCalls(20));
         //Caching config
         final ResilienceConfiguration.CacheConfiguration cacheConfig =
-                ResilienceConfiguration.CacheConfiguration.of(Duration.ofSeconds(60))
+                ResilienceConfiguration.CacheConfiguration.of(Duration.ofSeconds(360))
                 .withoutParameters();
         myResilienceConfig.cacheConfiguration(cacheConfig);
 
