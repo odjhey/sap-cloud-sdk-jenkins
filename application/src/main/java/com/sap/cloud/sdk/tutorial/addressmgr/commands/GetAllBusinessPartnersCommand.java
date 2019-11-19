@@ -42,6 +42,12 @@ public class GetAllBusinessPartnersCommand {
                 .bulkheadConfiguration(
                         ResilienceConfiguration.BulkheadConfiguration.of()
                         .maxConcurrentCalls(20));
+        //Caching config
+        final ResilienceConfiguration.CacheConfiguration cacheConfig =
+                ResilienceConfiguration.CacheConfiguration.of(Duration.ofSeconds(60))
+                .withoutParameters();
+        myResilienceConfig.cacheConfiguration(cacheConfig);
+
     }
 
     public List<BusinessPartner> execute() throws ODataException {
